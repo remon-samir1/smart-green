@@ -1,0 +1,19 @@
+.ChartsPage{
+  padding: 0 7vw;
+
+}
+.ChartsPage .chart-container{
+  height: 50vh;
+  width: 100%;
+  margin: auto;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);          /* ضبابية للخلفية */
+  -webkit-backdrop-filter: blur(10px);  /* دعم لمتصفح Safari */
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2); /* إطار خفيف */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);  /* ظل ناعم */
+  padding:20px 20px 40px 20px;
+}

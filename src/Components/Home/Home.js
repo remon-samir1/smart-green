@@ -3,6 +3,7 @@ import './Home.css';
 import Nav from '../NavBar/Nav';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
+import AnalogAlarms from '../AnalogAlarms/AnalogAlarms';
 
 const Home = () => {
   const imgRef = useRef(null);
@@ -26,6 +27,7 @@ const Home = () => {
             <img src={require('../../Images/greenhouse_diagram.png')} alt="smart" />
           </div>
         </div>
+        <AnalogAlarms />
       </div>
     </>
   );

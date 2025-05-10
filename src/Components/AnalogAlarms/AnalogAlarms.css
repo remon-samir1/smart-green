@@ -1,0 +1,31 @@
+.sensor-box {
+  padding: 16px;
+  margin: 12px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-family: "Cairo", sans-serif;
+  direction: rtl;
+}
+
+.sensor-box.normal {
+  background-color: #e9f7ef;
+  border-color: #28a745;
+  color: #155724;
+}
+
+.sensor-box.warning {
+  background-color: #fff3cd;
+  border-color: #ffc107;
+  color: #856404;
+}
+
+.sensor-box.error {
+  background-color: #f8d7da;
+  border-color: #dc3545;
+  color: #721c24;
+}
+
+.status-message {
+  font-weight: bold;
+  margin-top: 8px;
+}

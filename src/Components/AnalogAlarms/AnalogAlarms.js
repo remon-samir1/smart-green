@@ -3,37 +3,33 @@ import React, { useEffect, useState } from "react";
 const AnalogAlarms = () => {
   const [parameters, setParameters] = useState([]);
 
-  // تحميل البيانات من API
   useEffect(() => {
     fetch("https://wincc-api.vercel.app/parameters/")
       .then((res) => res.json())
       .then((data) => setParameters(data));
   }, []);
 
-  // مساعد للبحث عن قيمة من API بالاسم
   const getValueByName = (name) => {
     const item = parameters.find((param) => param.name === name);
     return item ? Number(item.value) : null;
   };
 
-  // تقييم حالة الحساس
   const evaluateStatus = (value, min, max) => {
     const range = max - min;
     const tenPercent = range * 0.1;
 
     if (value < min - tenPercent || value > max + tenPercent) {
-      return { status: "error", message: "❌ Sensor value is out of range!" };
+      return { status: "error", message: " Sensor value is out of range!" };
     } else if (
       (value >= min - tenPercent && value < min) ||
       (value <= max + tenPercent && value > max)
     ) {
-      return { status: "warning", message: "⚠️ Sensor value is approaching limit." };
+      return { status: "warning", message: " Sensor value is approaching limit." };
     } else {
-      return { status: "normal", message: "" };
+      return { status: "normal", message: "Status is normal" };
     }
   };
 
-  // تعريف الحساسات والحدود
   const sensors = [
     {
       name: "inputs_phreading",
@@ -51,7 +47,7 @@ const AnalogAlarms = () => {
       name: "inputs_co2reading",
       label: "CO2",
       minKey: "co2normx",
-      maxKey: "co2normx", // هنعتبر الحد العادي فقط
+      maxKey: "co2normx", 
     },
   ];
 
@@ -87,3 +83,8 @@ const AnalogAlarms = () => {
 };
 
 export default AnalogAlarms;
+
+
+
+
+

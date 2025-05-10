@@ -1,0 +1,105 @@
+/* General styling for the container holding all boxes */
+.box-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Each individual box */
+.box {
+  width: 250px;
+  height: 250px;
+  background-color: #f4f4f4;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+.box:hover {
+  transform: translateY(-10px);
+}
+
+/* Title of each box */
+.box-title {
+  font-size: 1.2em;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Icon placeholder for each box */
+.icon {
+  font-size: 3em;
+  color: #888;
+  margin-bottom: 10px;
+}
+
+/* Specific icons for each device */
+/* .icon.icon-system-on {
+  background: url('/path/to/system-on-icon.svg') no-repeat center center;
+  background-size: contain;
+}
+
+.icon.icon-system-off {
+  background: url('/path/to/system-off-icon.svg') no-repeat center center;
+  background-size: contain;
+}
+
+.icon.icon-fan {
+  background: url('/path/to/fan-icon.svg') no-repeat center center;
+  background-size: contain;
+}
+
+.icon.icon-heater {
+  background: url('/path/to/heater-icon.svg') no-repeat center center;
+  background-size: contain;
+}
+
+.icon.icon-pump {
+  background: url('/path/to/pump-icon.svg') no-repeat center center;
+  background-size: contain;
+}
+
+.icon.icon-lights {
+  background: url('/path/to/lights-icon.svg') no-repeat center center;
+  background-size: contain;
+} */
+
+/* Text for displaying info inside each box */
+.info-text {
+  font-size: 0.9em;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* Cycle time display */
+.cycle-info {
+  font-size: 0.8em;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+/* Button for manual mode control */
+.manual-button {
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.manual-button:hover {
+  background-color: #0056b3;
+}
+
+.manual-button:disabled {
+  background-color: #ccc;
+}

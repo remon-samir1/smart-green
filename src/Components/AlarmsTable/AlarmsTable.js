@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-// import "./AlarmsTable.css";
+import "./AlarmsTable.css";
 
 const AlarmsTable = () => {
   const [parameters, setParameters] = useState([]);

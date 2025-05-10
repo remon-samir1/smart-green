@@ -36,40 +36,112 @@
 /* Icon placeholder for each box */
 .icon {
   font-size: 3em;
+  width: 40px;
+  height: 40px;
   color: #888;
   margin-bottom: 10px;
 }
 
 /* Specific icons for each device */
 /* .icon.icon-system-on {
-  background: url('/path/to/system-on-icon.svg') no-repeat center center;
+  background: url('../../Images/fan.svg') no-repeat center center;
   background-size: contain;
 }
 
 .icon.icon-system-off {
-  background: url('/path/to/system-off-icon.svg') no-repeat center center;
-  background-size: contain;
-}
-
-.icon.icon-fan {
-  background: url('/path/to/fan-icon.svg') no-repeat center center;
-  background-size: contain;
-}
-
-.icon.icon-heater {
-  background: url('/path/to/heater-icon.svg') no-repeat center center;
-  background-size: contain;
-}
-
-.icon.icon-pump {
-  background: url('/path/to/pump-icon.svg') no-repeat center center;
-  background-size: contain;
-}
-
-.icon.icon-lights {
-  background: url('/path/to/lights-icon.svg') no-repeat center center;
+  background: url('../../Images/fan.svg') no-repeat center center;
   background-size: contain;
 } */
+
+
+.icon.icon-heater.off {
+  background: url('../../Images/heater-off.svg') no-repeat center center;
+  background-size: contain;
+}
+.icon.icon-heater.on {
+  background: url('../../Images/heater-on.svg') no-repeat center center;
+  background-size: contain;
+  animation: glow 2s infinite alternate;
+
+}
+
+.icon.icon-pump.off {
+  background: url('../../Images/pump-off.svg') no-repeat center center;
+  background-size: contain;
+}
+.icon.icon-pump.on {
+  background: url('../../Images/pump-on.svg') no-repeat center center;
+  background-size: contain;
+  animation: move 2s infinite alternate;
+
+}
+
+.icon.icon-lights.off {
+  background: url('../../Images/light-off.svg') no-repeat center center;
+  background-size: contain;
+}
+.icon.icon-lights.on {
+  background: url('../../Images/light-on.svg') no-repeat center center;
+  background-size: contain;
+  /* filter: drop-shadow(0 0 2px #fdde14); */
+  animation: glow 2s infinite alternate;
+}
+@keyframes glow {
+  0% {
+  filter: drop-shadow(0 0 10px #f39c12);
+
+
+  }
+  100% {
+  filter: drop-shadow(0 0 30px rgba(255, 255, 0, 1));
+
+  }
+}
+.icon.icon-fan.off {
+  background: url('../../Images/fan.svg') no-repeat center center;
+  background-size: contain;
+}
+.icon-fan.on {
+  background-size: contain;
+  background: url('../../Images/fan.svg') no-repeat center center;
+animation:  spin 2s linear infinite;;
+
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+
+}
+@keyframes move {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Text for displaying info inside each box */
 .info-text {

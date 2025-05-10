@@ -34,6 +34,7 @@ const Nav = () => {
       <div className="links">
         <NavLink to='/' ref={el => linksRef.current[0] = el}>Home</NavLink>
         <NavLink to='/charts' ref={el => linksRef.current[1] = el}>Charts</NavLink>
+        <NavLink to='/overview' ref={el => linksRef.current[2] = el}>Overview</NavLink>
       </div>
     </div>
   );

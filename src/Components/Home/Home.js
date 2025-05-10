@@ -30,8 +30,7 @@ const Home = () => {
             <img src={require('../../Images/greenhouse_diagram.png')} alt="smart" />
           </div>
         </div>
-    <AlarmsTable/>
-    <Boxes/>
+
       </div>
     </>
   );

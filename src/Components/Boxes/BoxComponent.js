@@ -1,8 +1,8 @@
 import React from "react";
 
 const BoxComponent = ({ title, value, hmiTag, deviceType, cycleTime }) => {
-  const isManual = hmiTag === 0; // Check if the system is in manual mode
-  const isDeviceOn = value === 1; // Check if the device is on
+  const isManual = hmiTag === 0; 
+  const isDeviceOn = value === 1; 
 
   return (
     <div className="box">
@@ -12,7 +12,6 @@ const BoxComponent = ({ title, value, hmiTag, deviceType, cycleTime }) => {
       ></div>
       <p className="info-text">{`${title} is ${isDeviceOn ? "On" : "Off"}`}</p>
 
-      {/* Display cycle times if available */}
       {cycleTime && (
         <div className="cycle-info">
           <p>Total Cycle Time: {cycleTime.total} mins</p>

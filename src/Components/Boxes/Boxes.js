@@ -1,35 +1,60 @@
+
+
+
 import './Boxes.css';
 import React, { useState, useEffect } from "react";
 import BoxComponent from "./BoxComponent";
 
-function App() {
+function Boxes() {
   const [systemStatus, setSystemStatus] = useState({
     fan: 0,
     heater: 0,
     pump: 0,
     lights: 0,
-    stop: 1, // 1 if system is stopped, 0 if system is running
-    hmiTag: 0, // 0 for manual, 1 for automatic
-    pumpCycleTime: { total: 0, remaining: 0 }, // pump cycle times
-    lightsCycleTime: { total: 0, remaining: 0 }, // lights cycle times
+    stop: 1,
+    hmiTag: 0,
+    pumpCycleTime: { total: 0, remaining: 0 },
+    lightsCycleTime: { total: 0, remaining: 0 },
   });
 
+  // Helper function to extract value by name from API data
+  const getValue = (data, name) => {
+    const found = data.find(item => item.name === name);
+    return found ? Number(found.value) : 0;
+  };
+
   useEffect(() => {
-    // Simulation of fetching from API
     const fetchData = async () => {
-      setSystemStatus({
-        fan: 1,  // fan is on
-        heater: 0,  // heater is off
-        pump: 1,  // pump is on
-        lights: 1,  // lights are on
-        stop: 0, // system running
-        hmiTag: 0, // manual mode
-        pumpCycleTime: { total: 120, remaining: 30 },  // pump cycle times
-        lightsCycleTime: { total: 180, remaining: 45 },  // lights cycle times
-      });
+      try {
+        const response = await fetch("https://wincc-api.vercel.app/parameters/");
+        const data = await response.json();
+
+        setSystemStatus({
+          fan: getValue(data, "fan"),
+          heater: getValue(data, "heater"),
+          pump: getValue(data, "waterpump"),
+          lights: getValue(data, "settimeforlights") > 0 ? 1 : 0, // consider lights ON if cycle is set
+          stop: getValue(data, "stop"),
+          hmiTag: getValue(data, "HMI_Tag_1"),
+          pumpCycleTime: {
+            total: getValue(data, "settimeforwater"),
+            remaining: getValue(data, "output_remainforwateringtime")
+          },
+          lightsCycleTime: {
+            total: getValue(data, "settimeforlights"),
+            remaining: getValue(data, "output_remainforlightstime_1")
+          }
+        });
+      } catch (error) {
+        console.error("Error fetching system data:", error);
+      }
     };
 
-    fetchData();
+    fetchData(); // Fetch once at start
+
+    const interval = setInterval(fetchData, 5000); // Fetch every 5 seconds
+
+    return () => clearInterval(interval); // Cleanup on component unmount
   }, []);
 
   return (
@@ -80,4 +105,4 @@ function App() {
   );
 }
 
-export default App;
+export default Boxes;

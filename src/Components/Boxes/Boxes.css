@@ -32,6 +32,10 @@
   color: #333;
   margin-bottom: 10px;
 }
+.box p{
+  color: #333;
+ 
+}
 
 /* Icon placeholder for each box */
 .icon {
@@ -43,15 +47,15 @@
 }
 
 /* Specific icons for each device */
-/* .icon.icon-system-on {
-  background: url('../../Images/fan.svg') no-repeat center center;
+.icon.icon-system-on {
+  background: url('../../Images/farm.svg') no-repeat center center;
   background-size: contain;
 }
 
 .icon.icon-system-off {
-  background: url('../../Images/fan.svg') no-repeat center center;
+  background: url('../../Images/farm.svg') no-repeat center center;
   background-size: contain;
-} */
+}
 
 
 .icon.icon-heater.off {

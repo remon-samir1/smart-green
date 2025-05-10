@@ -19,10 +19,10 @@ const BoxComponent = ({ title, value, hmiTag, deviceType, cycleTime }) => {
         </div>
       )}
 
-      {isManual && (
+      {!isManual && (
         <button
           className="manual-button"
-          disabled={isDeviceOn}
+          disabled={!isDeviceOn}
         >
           {isDeviceOn ? "Off" : "On"}
         </button>

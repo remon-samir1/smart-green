@@ -1,4 +1,3 @@
-/* General styling for the container holding all boxes */
 .box-container {
   display: flex;
   flex-wrap: wrap;
@@ -46,7 +45,6 @@
   margin-bottom: 10px;
 }
 
-/* Specific icons for each device */
 .icon.icon-system-on {
   background: url('../../Images/farm.svg') no-repeat center center;
   background-size: contain;
@@ -147,7 +145,6 @@ animation:  spin 2s linear infinite;;
 
 
 
-/* Text for displaying info inside each box */
 .info-text {
   font-size: 0.9em;
   color: #555;

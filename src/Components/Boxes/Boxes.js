@@ -18,7 +18,6 @@ function Boxes() {
     temperatureValues: { current: 0, min: 0, max: 0 }
   });
 
-  // Helper function to extract value by name from API data
   const getValue = (data, name) => {
     const found = data.find(item => item.name === name);
     return found ? Number(found.value) : 0;
@@ -117,7 +116,6 @@ function Boxes() {
         cycleTime={systemStatus.lightsCycleTime}
       />
 
-      {/* New Box - pH Values */}
       <div className="box">
         <h3 className="box-title">PH Values</h3>
         <p style={{display:'flex', justifyContent:'center' , alignItems:'center' , gap:'15px'}}><strong>Current PH:</strong> {systemStatus.phValues.current}</p>
